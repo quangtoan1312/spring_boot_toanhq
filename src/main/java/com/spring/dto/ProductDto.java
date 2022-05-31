@@ -1,81 +1,31 @@
-package com.spring.entity;
+package com.spring.dto;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "product")
-public class Product implements Serializable {
-	private static final long serialVersionUID = -297553281792804396L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductDto {
 	private Long id;
 
-	@Column(name = "category_id")
 	private Long categoryId;
-	
-	@Column(name = "name")
+
 	private String name;
 
-	@Column(name = "title")
 	private String title;
-	
-	@Column(name = "description")
+
 	private String description;
 
-	@Column(name = "img_url")
 	private String imgUrl;
-	
-	@Column(name = "price")
+
 	private int price;
-	
-	@Column(name = "quantity")
+
 	private int quantity;
-	
-	@Column(name = "status")
+
 	private String status;
-	
-	@Column(name = "unit")
+
 	private String unit;
 
-	@Column(name = "updated_at")
 	private LocalDate updatedAt;
 
-	@Column(name = "created_at")
 	private LocalDate createdAt;
-
-	protected Product() {
-	}
-
-	public Product(Long categoryId, String name, String title, String description, String imgUrl, int price,
-			int quantity, String status, String unit, LocalDate updatedAt, LocalDate createdAt) {
-		this.categoryId = categoryId;
-		this.name = name;
-		this.title = title;
-		this.description = description;
-		this.imgUrl = imgUrl;
-		this.price = price;
-		this.quantity = quantity;
-		this.status = status;
-		this.unit = unit;
-		this.updatedAt = updatedAt;
-		this.createdAt = createdAt;
-	}
-
-	@Override
-	public String toString() {
-		return String.format(
-				"Product[ID = %d, categoryID = %d, name = '%s', title='%s', description = %s, img_url = %s, price = %d, quantity = % d, status = %s, unit = %s, updateAt = '%t', createAt = '%t']",
-				id, categoryId, name, title, description, imgUrl, price, quantity, status, unit, updatedAt, createdAt);
-	}
 
 	public Long getId() {
 		return id;
